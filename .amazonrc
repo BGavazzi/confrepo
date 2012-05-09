@@ -1,0 +1,24 @@
+function ec2ssh() {
+    INSTANCE="$1"
+    shift
+    if [[ -z "$INSTANCE" ]]
+    then
+        echo 'use: ec2ssh $INSTANCE' >&2
+        return 2
+    fi
+
+    ADDRESS=$(ec2-describe-instances "$INSTANCE" | awk '$1 ~ /^INSTANCE$/ { print $4; }')
+    ADDRESS="${ADDRESS% *}"
+
+    if [[ -n "$ADDRESS" ]]
+    then
+        ssh "$ADDRESS" $@
+    else
+    return 1
+    fi
+}
+
+function ec2log() {
+    INSTANCE="$1"
+    ec2ssh "$INSTANCE" tail -f /var/log/bootstrap.log
+}
