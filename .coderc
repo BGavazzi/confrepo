@@ -38,11 +38,9 @@ function work () {
 
     virtualenvwrapper_verify_workon_environment $env_name || return 1
 
-    echo "source ~/.bashrc
-          workon $env_name
-          cdvirtualenv
-          cd src
-          " > ~/.virtualenvrc
-
-    bash --rcfile ~/.virtualenvrc
+    cd $WORKON_HOME
+    cd $env_name
+    . bin/activate
+    . contrib/aliases.bash
+    cd src
 }
