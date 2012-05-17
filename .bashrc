@@ -109,4 +109,4 @@ alias rprune='git remote prune origin'
 alias mongod='mongod --dbpath=/Users/marcosleal/mongo_data/'
 
 
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+export PATH=/usr/local/share/python:/usr/local/bin:/usr/local/sbin:$PATH
