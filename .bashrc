@@ -106,6 +106,7 @@ export PS1='\u@\h \w$(__git_ps1 "(%s)")\$ '
 alias limpyc='find ./ -name "*.pyc" | xargs rm -v'
 alias limpyswp='find ./ -name "*.swp" | xargs rm -v'
 alias rprune='git remote prune origin'
-alias mongod='mongod --dbpath=/home/marcosleal/mongo_data/'
+alias mongod='mongod --dbpath=/Users/marcosleal/mongo_data/'
 
-export PATH=$HOME/local/bin:$PATH
+
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
